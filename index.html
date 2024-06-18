@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Por el Mundo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo de la pagina">
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="showSection('sucursales')">Sucursales</a></li>
+                <li><a href="#" onclick="showSection('vendedores')">Vendedores</a></li>
+                <li><a href="#" onclick="showSection('ventas')">Ventas</a></li>
+                <li><a href="#" onclick="showSection('reportes')">Reportes</a></li>
+             </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="active">
+            <h2>Bienvenido a por el mundo, el sitio web para registrar ventas o comprar paquetes de viaje.</h2>
+            <img src="banner.jpg" alt="Banner de turismo" style="width: 100%;">
+        </section>
+
+        <section id="sucursales">
+            <h2>Gestión de Sucursales</h2>
+            <form>
+                <label for="nombre-sucursal">Nombre de la Sucursal:</label>
+                <input type="text" id="nombre-sucursal" name="nombre-sucursal">
+                <label for="telefono-sucursal">Teléfono:</label>
+                <input type="text" id="telefono-sucursal" name="telefono-sucursal">
+                <label for="direccion-sucursal">Dirección:</label>
+                <input type="text" id="direccion-sucursal" name="direccion-sucursal">
+                <label for="dni-gerente">DNI del Gerente:</label>
+                <input type="text" id="dni-gerente" name="dni-gerente">
+                <button type="submit">Agregar Sucursal</button>
+            </form>
+            <h3>Lista de Sucursales</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>DNI del Gerente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sucursal Central</td>
+                        <td>459887845</td>
+                        <td>Calle Mendoza y la rioja</td>
+                        <td>45365789</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="vendedores">
+            <h2>Gestión de Vendedores</h2>
+            <form id="form-vendedor">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido">
+                <label for="cuit">CUIT:</label>
+                <input type="text" id="cuit" name="cuit">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email">
+                <button type="submit">Agregar Vendedor</button>
+            </form>
+            <h3>Lista de Vendedores</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>CUIT</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nicolas</td>
+                        <td>Vargas</td>
+                        <td>20123456789</td>
+                        <td>nicovargas8604@gmail.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="ventas">
+            <h2>Registro de Ventas</h2>
+            <form id="form-venta">
+                <label for="vendedor">Vendedor:</label>
+                <select id="vendedor" name="vendedor">
+                    <option value="1">Nicolas Vargas</option>
+                    <option value="2">Jhonny Joestar</option>
+                </select>
+                <label for="paquete">Paquete:</label>
+                <select id="paquete" name="paquete">
+                    <option value="1">Paquete A</option>
+                    <option value="2">Paquete B</option>
+                </select>
+                <button type="submit">Registrar Venta</button>
+            </form>
+            <h3>Lista de Ventas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vendedor</th>
+                        <th>Paquete</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nicolas Vargas</td>
+                        <td>Paquete A</td>
+                        <td>2023-08-15</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="reportes">
+            <h2>Generación de Reportes</h2>
+            <form id="form-reporte">
+                <label for="sucursal">Sucursal:</label>
+                <select id="sucursal" name="sucursal">
+                    <option value="central">Sucursal Central</option>
+                    <option value="norte">Sucursal Norte</option>
+                </select>
+                <label for="periodo">Periodo:</label>
+                <input type="month" id="periodo" name="periodo">
+                <button type="button" onclick="generarPDF()">Generar PDF</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contacto: porelmundo@gmail.com</p>
+        <div> 
+            <a href="https://x.com/">Twitter</a>  
+            <a href="https://www.instagram.com/">Instagram</a>
+            <a href="https://facebook.com/">Facebook</a> 
+            <p>Hora Actual</p>
+            <p id="hora"></p>
+        
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+    
+    <script>
+        function mostrarHora() {
+    let fecha = new Date();
+    let horas = fecha.getHours();
+    let minutos = fecha.getMinutes();
+    let segundos = fecha.getSeconds();
+    horas = horas < 10 ? '0' + horas : horas;
+    minutos = minutos < 10 ? '0' + minutos : minutos;
+    segundos = segundos < 10 ? '0' + segundos : segundos;
+    let horaActual = horas + ':' + minutos + ':' + segundos;
+    document.getElementById('hora').textContent = horaActual;
+}
+mostrarHora();
+setInterval(mostrarHora, 1000);
+    </script>
+
+    <script>
+        document.getElementById('form-vendedor').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            let nombre = document.getElementById('nombre').value.trim();
+            let apellido = document.getElementById('apellido').value.trim();
+            let cuit = document.getElementById('cuit').value.trim();
+            let email = document.getElementById('email').value.trim();
+        
+            if (nombre === '' || apellido === '' || cuit === '' || email === '') {
+                alert('Existen campos incompletos');
+                return;
+            }
+        
+        });
+        function generarPDF() {
+            alert('Generando reporte en PDF...');
+        }</script>
+
+</body>
+</html>

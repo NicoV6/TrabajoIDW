@@ -1,0 +1,105 @@
+body {
+    font-family: Arial;
+    background-color: #FFFFFF;
+    color: #000000;
+    margin: 0;
+}
+
+header, nav, footer {
+    background-color: #3498DB;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: center;
+}
+
+header img {
+    height: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    font-family: Montserrat;
+    font-size: 16px;
+}
+
+main section {
+    display: none;
+    padding: 20px;
+}
+
+main section.active {
+    display: block;
+}
+
+h2, h3 {
+    font-family: Montserrat;
+    font-size: 32px;
+    color: #3498DB;
+}
+
+label {
+    display: block;
+    font-family: Roboto;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-family: Arial;
+}
+
+button {
+    background-color: #EE7708;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-family: Imprint;
+    font-size: 16px;
+    margin-top: 20px;
+
+}
+
+button:hover {
+    background-color: #E64A19;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #3498DB;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+footer a {
+    color: #FFFFFF;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
